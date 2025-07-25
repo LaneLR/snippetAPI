@@ -1,5 +1,6 @@
 package com.verizon.springtesting.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,8 +12,10 @@ public class Snippet {
     public String language;
     public String code;
 
-    @ManyToOne
+    //add JsonIgnoreProperties to bypass error
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private DBUser user;
 
 //    public Snippet(int id, String language, String code) {
