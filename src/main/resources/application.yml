@@ -1,0 +1,8 @@
+okta:
+  oauth2:
+    issuer: https://dev-c4meoq7pyf0oi8yq.us.auth0.com/
+    client-id: bKhPAlb7z72tBdeYo5KV337Fveg4pql9
+    client-secret: H2BHOQfjlxP9orDWQ3B1wBUpKiUgrGh9BCbCxVHYpl2n886CkU644xurbEGvaCam
+
+server:
+  port: 3000

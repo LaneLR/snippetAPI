@@ -15,14 +15,15 @@ public class JwtUtil {
     //note to self: final means this can't be changed.
     //similar to 'const' in Javascript
     private final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
-    private final long TOKENLIFETIME = 1000 * 60 * 60; //an hour
 
     //generate the token and assume we're logging in with an email
     public String generateToken(String email) {
+        //24 hours
+        long TokenLifetime = 1000 * 60 * 60 * 24;
         return Jwts.builder()
                 .setSubject(email) //set subject to the parameter
                 .setIssuedAt(new Date()) // set the current date the token was issued
-                .setExpiration(new Date(System.currentTimeMillis() + TOKENLIFETIME)) //set expiration
+                .setExpiration(new Date(System.currentTimeMillis() + TokenLifetime)) //set expiration
                 .signWith(key) //sign it
                 .compact();
 
